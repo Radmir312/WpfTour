@@ -9,13 +9,23 @@
       Title="AddEditPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" ></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Название"></TextBlock>
-        <TextBlock Text="Количество звезд" Grid.Row="1"></TextBlock>
-        <TextBlock Text="Страна" Grid.Row="2"></TextBlock>
+        <TextBlock Text="Название" FontSize="20"></TextBlock>
+        <TextBlock Text="Количество звезд" Grid.Row="1" FontSize="20"></TextBlock>
+        <TextBlock Text="Страна" Grid.Row="2" FontSize="20"></TextBlock>
+        <TextBox Text="{Binding Name}" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding CountOfStars}" Grid.Column="1" Grid.Row="1" Width="175" HorizontalAlignment="Left"></TextBox>
+        <ComboBox SelectedItem="{Binding Country}" Grid.Row="2" Grid.Column="1" x:Name="ComboCountries" DisplayMemberPath="Name"></ComboBox>
+        
+        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="3" Name="BtnSave" Click="BtnSave_Click"/>
     </Grid>
 </Page>
