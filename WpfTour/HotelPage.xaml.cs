@@ -23,11 +23,21 @@ namespace WpfTour
         public HotelPage()
         {
             InitializeComponent();
+            DGridHotels.ItemsSource = ToursBaseEntities.GetContext().Hotel.ToList();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage());
+        }
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DGridHotels_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

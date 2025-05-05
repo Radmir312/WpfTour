@@ -9,6 +9,13 @@
       Title="AddEditPage">
 
     <Grid>
-        <TextBlock Text="Hello" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="DarkSlateGray"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Название"></TextBlock>
+        <TextBlock Text="Количество звезд" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Страна" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>
