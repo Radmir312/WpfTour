@@ -30,5 +30,13 @@ namespace WpfTour
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Type> Type { get; set; }
+
+        public string ActualText
+        {
+            get
+            {
+                return (bool)(IsActual) ? "Актуален" : "Завершен";
+            }
+        }
     }
 }
