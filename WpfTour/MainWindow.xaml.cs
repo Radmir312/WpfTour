@@ -23,7 +23,7 @@ namespace WpfTour
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new HotelPage());
+            MainFrame.Navigate(new ToursPage());
             Manager.MainFrame = MainFrame;
         }
 
