@@ -36,6 +36,7 @@ namespace WpfTour
 
             UpdateTours();
         }
+
         private void UpdateTours()
         {
             var currentTours = ToursBaseEntities.GetContext().Tour.ToList();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,55 @@ namespace WpfTour
             InitializeComponent();
             MainFrame.Navigate(new ToursPage());
             Manager.MainFrame = MainFrame;
+
+            ImportTours();
         }
+        private void ImportTours()
+        {
+            var images = Directory.GetFiles(@"C:\img");
+
+            foreach (var imagePath in images)
+            {
+                try
+                {
+                    var imageName = System.IO.Path.GetFileNameWithoutExtension(imagePath);
+                    var tempTour = new Tour
+                    {
+                        ImagePreview = File.ReadAllBytes(imagePath)
+                    };
+
+                    ToursBaseEntities.GetContext().Tour.Add(tempTour);
+                    ToursBaseEntities.GetContext().SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ошибка обработки изображения {imagePath}: {ex.Message}");
+                }
+            }
+        }
+        //private void ImportTours()
+        //{
+        //    var images = Directory.GetFiles(@"C:\img");
+
+        //    foreach (var imagePath in images)
+        //    {
+        //        try
+        //        {
+        //            var imageName = Path.GetFileNameWithoutExtension(imagePath);
+        //            var tempTour = new Tour
+        //            {
+        //                ImagePreview = File.ReadAllBytes(imagePath)
+        //            };
+
+        //            ToursBaseEntities.GetContext().Tour.Add(tempTour);
+        //            ToursBaseEntities.GetContext().SaveChanges();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine($"Ошибка обработки изображения {imagePath}: {ex.Message}");
+        //        }
+        //    }
+        //}
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {
