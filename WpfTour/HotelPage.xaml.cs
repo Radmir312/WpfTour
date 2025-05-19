@@ -32,7 +32,7 @@ namespace WpfTour
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Hotel));
         }
 
         private void DGridHotels_SelectionChanged(object sender, SelectionChangedEventArgs e)

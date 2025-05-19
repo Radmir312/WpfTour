@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -58,5 +59,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Grid.Row="2" Content="Редактировать" Width="100" HorizontalAlignment="Right" Margin="10" Click="EditButton_Click"/>
     </Grid>
 </Page>
